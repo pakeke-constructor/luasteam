@@ -33,6 +33,7 @@ template <typename T> class CallResultListener {
     CCallResult<CallResultListener, T> call_result;
 };
 
+
 void init_common(lua_State *L);
 void shutdown_common(lua_State *L);
 
