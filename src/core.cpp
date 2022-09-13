@@ -6,6 +6,7 @@
 #include "utils.hpp"
 #include "apps.hpp"
 #include "input.hpp"
+#include "inventory.hpp"
 
 // ========================
 // ======= SteamAPI =======
@@ -23,6 +24,7 @@ EXTERN int luasteam_init(lua_State *L) {
         luasteam::init_extra(L);
         luasteam::init_apps(L);
         luasteam::init_input(L);
+        luasteam::init_inventory(L);
     } else {
         fprintf(stderr, "Couldn't connect to steam...\nDo you have Steam turned on?\nIf not running from steam, do you have a correct steam_appid.txt file?\n");
     }
@@ -42,6 +44,7 @@ EXTERN int luasteam_shutdown(lua_State *L) {
     luasteam::shutdown_user_stats(L);
     luasteam::shutdown_friends(L);
     luasteam::shutdown_common(L);
+    luasteam::shutdown_inventory(L);
     return 0;
 }
 
