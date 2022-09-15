@@ -104,13 +104,13 @@ EXTERN int luasteam_beginAuthSession(lua_State *L) {
         lua_pushboolean(L,false);
     }
     lua_pushnumber(L,result);
-    return 1;
+    return 2;
 }
 
 // void CancelAuthTicket( HAuthTicket hAuthTicket );
 EXTERN int luasteam_cancelAuthTicket(lua_State *L) {
     SteamUser()->CancelAuthTicket(currentTicket);
-    return 1;
+    return 0;
 }
 
 // void EndAuthSession( CSteamID steamID );
@@ -118,7 +118,7 @@ EXTERN int luasteam_endAuthSession(lua_State *L) {
     uint64 steamid = luasteam::checkuint64(L, 1);
     CSteamID id = CSteamID(steamid);
     SteamUser()->EndAuthSession(id);
-    return 1;
+    return 0;
 }
 
 } // namespace
